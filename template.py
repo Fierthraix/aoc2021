@@ -4,13 +4,20 @@ import argparse
 
 def _parse_args():
     ap = argparse.ArgumentParser()
-    ap.add_argument('input', nargs=1, type=str)
+    ap.add_argument('input', type=str)
 
     return ap.parse_args()
 
-def run(args):
+
+def part_1(args):
+    pass
+
+
+def part_2(args):
     pass
 
 
 if __name__ == '__main__':
-    run(_parse_args())
+    input = _parse_args().input.split()
+    part_1(input)
+    part_2(input)
