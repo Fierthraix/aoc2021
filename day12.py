@@ -87,9 +87,9 @@ class Graph:
                     continue
 
             if is_small(next_node) and next_node in path:
-                if double is None:
+                if double is None:  # We now have a doubled character.
                     results += cls._find_exits_revisted(adj, next_path, next_node)
-            else:
+            else:  # Big rooms can be visited a lot.
                 results += cls._find_exits_revisted(adj, next_path, double)
 
         return results

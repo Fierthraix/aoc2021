@@ -14,14 +14,14 @@ def _parse_args():
 class Grid:
     def __init__(self, input: str):
         self.grid = set()
-        for line in input.split('\n'):
+        for line in input.split('\n'):  # Get initial points.
             try:
                 self.grid.add(tuple(map(int, line.split(","))))
             except ValueError:
                 break
 
         self.folds = []
-        for line in input.split('\n'):
+        for line in input.split('\n'):  # Get fold instructions.
             try:
                 dim, val = line.split("fold along ")[1].split('=')
                 self.folds.append((dim, int(val)))
@@ -70,7 +70,7 @@ def part_1(input):
 
 def part_2(input):
     grid = Grid(input)
-    while grid.folds:
+    while grid.folds:  # Go through all folding instructions.
         grid.fold()
     print(grid)
 

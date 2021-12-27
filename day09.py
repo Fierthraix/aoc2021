@@ -19,6 +19,7 @@ def make_grid(text: str) -> List[List[int]]:
 
 
 def minima(grid: List[List[int]]) -> List[Tuple[int, int]]:
+    """Get the local minima of a grid."""
     return [
             (i, j)
             for i in range(len(grid))
@@ -30,7 +31,13 @@ def minima(grid: List[List[int]]) -> List[Tuple[int, int]]:
             ]
 
 
+def part_1(input):
+    grid = make_grid(input)
+    print(sum(grid[i][j] + 1 for i, j in minima(grid)))
+
+
 def neighbours(grid: List[List[int]], point: Tuple[int, int]):
+    """Get basin neighbours."""
     neighbours = []
     x, y = point
     x_max, y_max = len(grid)-1, len(grid[0])-1
@@ -46,7 +53,6 @@ def neighbours(grid: List[List[int]], point: Tuple[int, int]):
     return neighbours
 
 
-
 def basin(grid: List[List[int]], start: Tuple[int, int]) -> List[Tuple[int, int]]:
     nodes = set()
     new_nodes = set([start])
@@ -57,11 +63,6 @@ def basin(grid: List[List[int]], start: Tuple[int, int]) -> List[Tuple[int, int]
         if new_nodes.issubset(nodes):
             break
     return nodes
-    
-
-def part_1(input):
-    grid = make_grid(input)
-    print(sum(grid[i][j] + 1 for i, j in minima(grid)))
 
 
 def part_2(input):

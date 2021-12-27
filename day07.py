@@ -41,6 +41,7 @@ def part_1(input):
 
 
 def triangle_num(n):
+    """Determine \sum_(i=1)^n i (e.g., 1 + 2 + 3 + ... + n)"""
     return int(factorial(n + 1) // 2 / factorial(n - 1)) if n else 0
 
 

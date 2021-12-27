@@ -23,15 +23,19 @@ class DelimChar(Enum):
     TRI_R = '>'
 
     def is_left(self):
+        """Is it a lefthand delimiter?"""
         return self in (DelimChar.CRL_L, DelimChar.SQR_L, DelimChar.SWG_L, DelimChar.TRI_L)
 
     def is_right(self):
+        """Is it a righthand delimiter?"""
         return not self.is_left()
 
     def matches(self, other) -> bool:
+        """Do these characters complete each other?"""
         return {self.value, other.value} in ({'(', ')'}, {'[', ']'}, {'{', '}'}, {'<', '>'})
 
     def opposite(self) -> 'DelimChar':
+        """Get the opposing character."""
         match self:
             case DelimChar.CRL_L:
                 return DelimChar.CRL_R

@@ -58,7 +58,7 @@ class Octopode:
             )
             if new_flashes:
                 flashes += new_flashes
-            else:
+            else:  # No new flashes, step complete.
                 break
 
         return flashes
@@ -84,7 +84,7 @@ def part_1(input):
 def part_2(input):
     octopode = Octopode(input)
     step = 1
-    while octopode.step() != octopode.num_octopi:
+    while octopode.step() != octopode.num_octopi:  # Wait until all octopi flash.
         step += 1
     print(step)
 

@@ -26,11 +26,13 @@ class BingoCell:
 class Bingo:
     def __init__(self, input):
         lines = input.split('\n')
+        # Caller numbers.
         self.numbers = [int(i) for i in lines[0].split(',')]
         self.curr_num_idx = 0
 
         self.boards = []
 
+        # Make the player boards.
         board = []
         for line in lines[2:]:
             if len(line) == 0:

@@ -13,6 +13,7 @@ def _parse_args():
 
 
 def irange(num1, num2) -> range:
+    """Inclusive range function, of the interval [num1, num2]."""
     if num1 < num2:
         start, stop = num1, num2
     else:
@@ -42,6 +43,7 @@ class Line():
 
 
 def get_ortho_points(lines: List[Line]) -> Dict[Tuple[int, int], int]:
+    """Get overlaps of horizontal/vertical bingo rows."""
     points = defaultdict(lambda: 0)
 
     for line in lines:
@@ -56,6 +58,7 @@ def get_ortho_points(lines: List[Line]) -> Dict[Tuple[int, int], int]:
 
 
 def count_overlaps(points: Dict[Tuple[int, int], int]) -> int:
+    """Get the number of points with overlapping lines."""
     return sum(1 for (_, overlaps) in points.items() if overlaps > 1)
 
 

@@ -26,6 +26,7 @@ class Fish:
 
 
 class School:
+    """School of `Lanternfish`."""
     def __init__(self, state: str):
         self.fishes = [Fish(int(num)) for num in state.split(',')]
 
@@ -49,6 +50,7 @@ def part_1(input):
 
 
 class BigSchool:
+    """Efficient fish school."""
     repro_cycle = 8
 
     def __init__(self, state: str):
@@ -60,13 +62,13 @@ class BigSchool:
     def run_day(self):
         new_school = defaultdict(lambda: 0)
 
-        # new fish from reproduction
+        # New fish from reproduction.
         new_school[8] += self.fishes[0]
 
-        # reset timer for 0 fish
+        # Reset timer for 0 fish.
         new_school[6] += self.fishes[0]
 
-        # move the others
+        # Decrement other days.
         for day in range(max(self.fishes.keys())):
             new_school[day] += self.fishes[day + 1]
 

@@ -24,6 +24,7 @@ def sum_to_bit(num):
 
 
 def bit_avg(num_list):
+    """Get the average bit for columns in a number list."""
     avg = [0 for _ in range(len(num_list[0]))]
 
     for num in num_list:
@@ -34,6 +35,7 @@ def bit_avg(num_list):
 
 
 def invert(num):
+    """Switch 1 to 0 and vice versa."""
     invert = lambda num: '1' if num == '0' else '0'
     return ''.join(invert(digit) for digit in num)
 
